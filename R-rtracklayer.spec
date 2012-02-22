@@ -12,27 +12,21 @@ License:          Artistic-2.0
 URL:              http://bioconductor.org/packages/release/bioc/html/%{packname}.html
 Source0:          http://bioconductor.org/packages/release/bioc/src/contrib/%{packname}_%{version}.tar.gz
 Requires:         R-methods R-RCurl R-XML R-IRanges R-GenomicRanges
-Requires:         R-Biostrings R-BSgenome R-zlibbioc
-%if %{with bootstrap}
-Requires:         R-microRNA R-genefilter R-org.Hs.eg.db
-Requires:         R-BSgenome.Hsapiens.UCSC.hg19 R-hgu133plus2.db
-%else
-Requires:         R-humanStemCell R-microRNA R-genefilter R-limma
-Requires:         R-org.Hs.eg.db R-BSgenome.Hsapiens.UCSC.hg19
-Requires:         R-TxDb.Hsapiens.UCSC.hg19.knownGene R-hgu133plus2.db
+Requires:         R-Biostrings R-BSgenome R-zlibbioc R-microRNA
+Requires:         R-genefilter R-org.Hs.eg.db R-BSgenome.Hsapiens.UCSC.hg19
+Requires:	  R-hgu133plus2.db
+%if %{without bootstrap}
+Requires:         R-humanStemCell R-limma R-TxDb.Hsapiens.UCSC.hg19.knownGene
 Requires:         R-Rsamtools
 %endif
-BuildRequires:    R-devel Rmath-devel texlive-collection-latex R-methods
-BuildRequires:    R-RCurl R-XML R-IRanges R-GenomicRanges R-Biostrings
-BuildRequires:    R-BSgenome R-zlibbioc
-%if %{with bootstrap}
-BuildRequires:    R-microRNA R-genefilter R-org.Hs.eg.db
-BuildRequires:    R-BSgenome.Hsapiens.UCSC.hg19 R-hgu133plus2.db
-%else
-BuildRequires:    R-humanStemCell R-microRNA R-genefilter R-limma
-BuildRequires:    R-org.Hs.eg.db R-BSgenome.Hsapiens.UCSC.hg19
-BuildRequires:    R-TxDb.Hsapiens.UCSC.hg19.knownGene R-hgu133plus2.db
-BuildRequires:    R-Rsamtools
+BuildRequires:    R-devel Rmath-devel texlive-collection-latex
+BuildRequires:    R-methods R-RCurl R-XML R-IRanges R-GenomicRanges
+BuildRequires:    R-Biostrings R-BSgenome R-zlibbioc R-microRNA
+BuildRequires:    R-genefilter R-org.Hs.eg.db R-BSgenome.Hsapiens.UCSC.hg19
+BuildRequires:    R-hgu133plus2.db
+%if %{without bootstrap}
+BuildRequires:    R-humanStemCell R-limma R-TxDb.Hsapiens.UCSC.hg19.knownGene
+buildRequires:    R-Rsamtools
 %endif
 
 %description
