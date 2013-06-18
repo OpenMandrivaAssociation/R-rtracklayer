@@ -5,7 +5,7 @@
 
 Name:             R-%{packname}
 Version:          1.14.4
-Release:          2
+Release:          3
 Summary:          R interface to genome browsers and their annotation tracks
 Group:            Sciences/Mathematics
 License:          Artistic-2.0
