@@ -4,29 +4,37 @@
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          1.14.4
-Release:          3
+Version:          1.18.2
+Release:          1
 Summary:          R interface to genome browsers and their annotation tracks
 Group:            Sciences/Mathematics
 License:          Artistic-2.0
 URL:              http://bioconductor.org/packages/release/bioc/html/%{packname}.html
-Source0:          http://bioconductor.org/packages/release/bioc/src/contrib/%{packname}_%{version}.tar.gz
+Source0:          http://bioconductor.org/packages/release/bioc/src/contrib/rtracklayer_1.18.2.tar.gz
 Requires:         R-methods R-RCurl R-XML R-IRanges R-GenomicRanges
-Requires:         R-Biostrings R-BSgenome R-zlibbioc R-microRNA
-Requires:         R-genefilter R-org.Hs.eg.db R-BSgenome.Hsapiens.UCSC.hg19
-Requires:	  R-hgu133plus2.db
-%if %{without bootstrap}
-Requires:         R-humanStemCell R-limma R-TxDb.Hsapiens.UCSC.hg19.knownGene
+Requires:         R-Biostrings R-BSgenome R-zlibbioc
+%if %{with bootstrap}
+Requires:         R-microRNA R-genefilter R-org.Hs.eg.db
+Requires:         R-BSgenome.Hsapiens.UCSC.hg19 R-hgu133plus2.db
+%else
+Requires:         R-humanStemCell R-microRNA R-genefilter R-limma
+Requires:         R-org.Hs.eg.db R-BSgenome.Hsapiens.UCSC.hg19
+Requires:         R-TxDb.Hsapiens.UCSC.hg19.knownGene R-hgu133plus2.db
 Requires:         R-Rsamtools
+Requires:         R-BiocGenerics
 %endif
-BuildRequires:    R-devel Rmath-devel texlive-collection-latex
-BuildRequires:    R-methods R-RCurl R-XML R-IRanges R-GenomicRanges
-BuildRequires:    R-Biostrings R-BSgenome R-zlibbioc R-microRNA
-BuildRequires:    R-genefilter R-org.Hs.eg.db R-BSgenome.Hsapiens.UCSC.hg19
-BuildRequires:    R-hgu133plus2.db
-%if %{without bootstrap}
-BuildRequires:    R-humanStemCell R-limma R-TxDb.Hsapiens.UCSC.hg19.knownGene
-buildRequires:    R-Rsamtools
+BuildRequires:    R-devel Rmath-devel texlive-collection-latex R-methods
+BuildRequires:    R-RCurl R-XML R-IRanges R-GenomicRanges R-Biostrings
+BuildRequires:    R-BSgenome R-zlibbioc
+BuildRequires:    R-BiocGenerics
+%if %{with bootstrap}
+BuildRequires:    R-microRNA R-genefilter R-org.Hs.eg.db
+BuildRequires:    R-BSgenome.Hsapiens.UCSC.hg19 R-hgu133plus2.db
+%else
+BuildRequires:    R-humanStemCell R-microRNA R-genefilter R-limma
+BuildRequires:    R-org.Hs.eg.db R-BSgenome.Hsapiens.UCSC.hg19
+BuildRequires:    R-TxDb.Hsapiens.UCSC.hg19.knownGene R-hgu133plus2.db
+BuildRequires:    R-Rsamtools
 %endif
 
 %description
@@ -70,3 +78,16 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/notes
 %{rlibdir}/%{packname}/scripts
 %{rlibdir}/%{packname}/tests
+
+
+%changelog
+* Wed Feb 22 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.14.4-2
++ Revision: 778825
+- Rebuild with proper dependencies
+
+* Sat Feb 18 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.14.4-1
++ Revision: 776599
+- Import R-rtracklayer
+- Import R-rtracklayer
+
+
