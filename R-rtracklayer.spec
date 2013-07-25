@@ -1,5 +1,5 @@
 %bcond_with internet
-%bcond_with bootstrap
+%bcond_without bootstrap
 %global packname  rtracklayer
 %global rlibdir  %{_libdir}/R/library
 
@@ -13,6 +13,7 @@ URL:              http://bioconductor.org/packages/release/bioc/html/%{packname}
 Source0:          http://bioconductor.org/packages/release/bioc/src/contrib/rtracklayer_1.18.2.tar.gz
 Requires:         R-methods R-RCurl R-XML R-IRanges R-GenomicRanges
 Requires:         R-Biostrings R-BSgenome R-zlibbioc
+Requires:         R-Rsamtools
 %if %{with bootstrap}
 Requires:         R-microRNA R-genefilter R-org.Hs.eg.db
 Requires:         R-BSgenome.Hsapiens.UCSC.hg19 R-hgu133plus2.db
@@ -20,7 +21,6 @@ Requires:         R-BSgenome.Hsapiens.UCSC.hg19 R-hgu133plus2.db
 Requires:         R-humanStemCell R-microRNA R-genefilter R-limma
 Requires:         R-org.Hs.eg.db R-BSgenome.Hsapiens.UCSC.hg19
 Requires:         R-TxDb.Hsapiens.UCSC.hg19.knownGene R-hgu133plus2.db
-Requires:         R-Rsamtools
 Requires:         R-BiocGenerics
 %endif
 BuildRequires:    R-devel Rmath-devel texlive-collection-latex R-methods
@@ -34,8 +34,8 @@ BuildRequires:    R-BSgenome.Hsapiens.UCSC.hg19 R-hgu133plus2.db
 BuildRequires:    R-humanStemCell R-microRNA R-genefilter R-limma
 BuildRequires:    R-org.Hs.eg.db R-BSgenome.Hsapiens.UCSC.hg19
 BuildRequires:    R-TxDb.Hsapiens.UCSC.hg19.knownGene R-hgu133plus2.db
-BuildRequires:    R-Rsamtools
 %endif
+BuildRequires:    R-Rsamtools
 
 %description
 Extensible framework for interacting with multiple genome browsers
@@ -67,8 +67,10 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/doc
 %doc %{rlibdir}/%{packname}/html
 %doc %{rlibdir}/%{packname}/DESCRIPTION
+%{rlibdir}/%{packname}/CITATION
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/NAMESPACE
+%{rlibdir}/%{packname}/NEWS
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/data
@@ -78,6 +80,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/notes
 %{rlibdir}/%{packname}/scripts
 %{rlibdir}/%{packname}/tests
+%{rlibdir}/%{packname}/unitTests
 
 
 %changelog
