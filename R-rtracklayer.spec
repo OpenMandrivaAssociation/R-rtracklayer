@@ -1,16 +1,16 @@
 %bcond_with internet
-%bcond_without bootstrap
+%bcond_with bootstrap
 %global packname  rtracklayer
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          1.18.2
+Version:          1.20.4
 Release:          1
 Summary:          R interface to genome browsers and their annotation tracks
 Group:            Sciences/Mathematics
 License:          Artistic-2.0
 URL:              http://bioconductor.org/packages/release/bioc/html/%{packname}.html
-Source0:          http://bioconductor.org/packages/release/bioc/src/contrib/rtracklayer_1.18.2.tar.gz
+Source0:          http://bioconductor.org/packages/release/bioc/src/contrib/rtracklayer_1.20.4.tar.gz
 Requires:         R-methods R-RCurl R-XML R-IRanges R-GenomicRanges
 Requires:         R-Biostrings R-BSgenome R-zlibbioc
 Requires:         R-Rsamtools
@@ -81,16 +81,5 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/scripts
 %{rlibdir}/%{packname}/tests
 %{rlibdir}/%{packname}/unitTests
-
-
-%changelog
-* Wed Feb 22 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.14.4-2
-+ Revision: 778825
-- Rebuild with proper dependencies
-
-* Sat Feb 18 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.14.4-1
-+ Revision: 776599
-- Import R-rtracklayer
-- Import R-rtracklayer
-
+%{rlibdir}/%{packname}/extdata
 
