@@ -9,7 +9,7 @@ Release:          1
 Summary:          R interface to genome browsers and their annotation tracks
 Group:            Sciences/Mathematics
 License:          Artistic-2.0
-URL:              http://bioconductor.org/packages/release/bioc/html/%{packname}.html
+URL:              https://bioconductor.org/packages/release/bioc/html/%{packname}.html
 Source0:          http://bioconductor.org/packages/release/bioc/src/contrib/rtracklayer_1.20.4.tar.gz
 Requires:         R-methods R-RCurl R-XML R-IRanges R-GenomicRanges
 Requires:         R-Biostrings R-BSgenome R-zlibbioc
